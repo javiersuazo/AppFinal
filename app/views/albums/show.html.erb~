@@ -1,0 +1,55 @@
+<% title @album.title %>
+
+<div id="main-container">
+		<div  class="page-wrap">
+
+
+ 
+  <h1><%= @album.title %></h1>
+  <h3><%= @album.description %>, recomendado por <%=User.find(@album.user_id).name%></h3>
+
+
+<div id="page">
+    <div id="container">
+		<div id="gallery" class="content">
+			<div id="controls" class="controls"></div>
+				<div class="slideshow-container">
+					<div id="loading" class="loader"></div>
+					    <div id="slideshow" class="slideshow"></div>
+		</div>
+		<div id="caption" class="caption-container"></div>
+    </div>
+    <div id="thumbs" class="navigation">
+	<ul class="thumbs noscript">
+	    <% @album.photos.each do |photo| %>
+		<li>
+		<a class="thumb" href="<%=photo.data.url(:large)%>" >
+			<img src="<%=photo.data.url(:thumb)%>" alt="Title #4" />
+		</a>
+		<div class="caption">
+			<div class="download">
+			
+			</div>
+		</div>
+	      </li>
+	    <%end%>
+	</ul>
+
+
+</div>
+
+</div>
+<!-- <% @album.photos.each do |photo| %> -->
+<!--   <%= image_tag photo.data.url(:thumb) %> -->
+<!-- <% end %> -->
+
+
+<!-- <p> -->
+<!--   <%= link_to "Edit", edit_album_path(@album) %> | -->
+<!--   <%= link_to "Destroy", @album, :confirm => 'Are you sure?', :method => :delete %> | -->
+<!--   <%= link_to "View Aldl", albums_path %> -->
+<!-- </p> -->
+
+</div>
+</div>
+<%= link_to "Home", home_index_path%>

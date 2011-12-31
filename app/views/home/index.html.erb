@@ -1,0 +1,41 @@
+<div id = "linea"> </div>
+
+<div id="main-container">
+		<div  class="page-wrap">
+
+		     <%if current_user.provider == "facebook"%>
+		     <h1>Hola! <%= current_user.name %>  <img src="http://graph.facebook.com/<%= current_user.uid %>/picture/?type=normal"/></h1>
+		     <%end%>
+		     <%if current_user.provider == "twitter"%>
+		     <h1>Hola! <%= current_user.name %>  <img src="http://api.twitter.com/1/users/profile_image/<%=current_user.uid%>"/></h1>
+		     <%end%>
+		    <br/><br/>
+		    <div class = "container2"><a href = "/albums/new">
+		    <img id = "asd" src="/add.png"/><h1>Agregar un nuevo lugar!</h1></a>
+		    </div>
+		      <br/>
+		    <div class = "container2"><a href ="/sugeridos/index">
+		    <img id = "asd" src="/camara.png"/>
+			<%if Album.where("user_id = #{current_user.id}").size > 0%>
+			 <h1>Has sugerido <%=Album.where("user_id = #{current_user.id}").size%> 
+
+			  <%if Album.where("user_id = #{current_user.id}").size == 1%>
+			    lugar
+			  <%else%>
+			    lugares
+			  <%end%>
+
+			  !!</h1>
+			<%else%>
+			<h1>No has sugerido lugares todavia...</h1>
+			<%end%>
+		      </a>
+		    </div><br/>
+		     <div class = "container2"><a href ="/todos/index">
+		    <img id = "asd" src="/buscar.png"/><h1>Buscar Lugares Sugeridos!</h1></a>
+		    </div>
+
+
+		</div>
+
+</div>

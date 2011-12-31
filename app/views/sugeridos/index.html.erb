@@ -1,0 +1,25 @@
+<div id="main-container">
+		<div  class="page-wrap">
+
+
+
+<h1>Has sugerido los siguientes lugares...</h1><br/><br/><br/>
+
+<%if Album.where("user_id = #{current_user.id}").size == 0%>
+<div class = "container2"><a href = "/home/index">
+	      <img id = "asd" src="/camara.png"/><h1>No has sugerido lugares aun...</h1></a>
+</div>
+<%else%>
+
+    <% @albums.each do |t|%>
+	<%if t.user_id == @user.id%>
+	    <div class = "container2"><a href = "/albums/<%=t.id%>">
+	      <img id = "asd" src="/camara.png"/><h1><%=t.title%></h1></a>
+	    </div>
+	   <br/>
+	<%end%>
+    <%end%>
+<%end%>
+
+  </div>
+</div>

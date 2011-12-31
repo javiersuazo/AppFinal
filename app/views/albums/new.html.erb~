@@ -1,0 +1,7 @@
+<div class ="linea"></div>
+
+<h1 class = "ma">Crea tu album....</h1>
+<div class = "center">
+<%= render 'form' %>
+
+</div>

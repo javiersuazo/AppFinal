@@ -1,0 +1,7 @@
+<%= f.fields_for :photos do |builder| %>
+  <p>
+   <%= builder.label :data, "Foto" %><br />
+   <%= builder.file_field :data%>
+  </p>
+  <% end %>
+  <p><%= link_to_add_fields "Add Photo", f, :photos %></p>
