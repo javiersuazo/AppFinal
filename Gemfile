@@ -12,6 +12,7 @@ gem 'json'
 gem 'omniauth-facebook', :git => "git://github.com/mkdynamic/omniauth-facebook.git"
 gem 'devise'
 # Gems used only for assets and not required
+gem 'pg'
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
